@@ -16,7 +16,7 @@ defmodule TrackerWeb.Router do
   scope "/", TrackerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", PageController, :landing
     resources "i", InterestController
   end
 
