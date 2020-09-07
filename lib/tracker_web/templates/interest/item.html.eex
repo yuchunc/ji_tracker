@@ -1,0 +1,38 @@
+<li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow">
+  <div class="flex-1 flex flex-col p-8">
+    <h2 class="mt-6 text-gray-900 text-xl leading-5 font-medium"> Some Company Name</h2>
+    <h3 class="text-gray-700 text-md leading-5 pt-2">Position Name</h3>
+    <dl class="px-2 mt-2 flex-grow flex flex-col justify-start text-left text-sm">
+      <dt class="sr-only">Thoughts</dt>
+      <dd>Pharetra magna morbi erat volutpat consequat facilisi quisque sociosqu phasellus, pellentesque dui bibendum consectetur turpis leo congue.</dd>
+    </dl>
+    <div class="mt-3">
+      <span class="px-2 py-1 text-teal-800 text-xs leading-4 font-medium bg-teal-100 rounded-full">
+        industry
+      </span>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-200">
+    <div class="-mt-px flex">
+      <div class="w-0 flex-1 flex border-r border-gray-200">
+        <a href="#" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150">
+          <%= Enum.map 1..5, fn _ -> %>
+            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M3.17157 5.17157C4.73367 3.60948 7.26633 3.60948 8.82843 5.17157L10 6.34315L11.1716 5.17157C12.7337 3.60948 15.2663 3.60948 16.8284 5.17157C18.3905 6.73367 18.3905 9.26633 16.8284 10.8284L10 17.6569L3.17157 10.8284C1.60948 9.26633 1.60948 6.73367 3.17157 5.17157Z"/>
+            </svg>
+          <% end %>
+        </a>
+      </div>
+      <div class="-ml-px w-0 flex-1 flex">
+        <a href="#" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150">
+          <%= Enum.map 1..3, fn _ -> %>
+            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18 8C18 11.3137 15.3137 14 12 14C11.3938 14 10.8087 13.9101 10.2571 13.7429L10 14L9 15L8 16H6V18H2V14L6.25707 9.74293C6.08989 9.19135 6 8.60617 6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8ZM12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C13.1046 6 14 6.89543 14 8C14 8.55228 14.4477 9 15 9C15.5523 9 16 8.55228 16 8C16 5.79086 14.2091 4 12 4Z" />
+            </svg>
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </div>
+</li>
