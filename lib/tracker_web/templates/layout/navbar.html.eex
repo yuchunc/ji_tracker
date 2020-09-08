@@ -54,7 +54,7 @@
     x-description="Mobile menu, toggle classes based on menu state."
     @click.away="showMobileMenu = false"
     :class="{ 'block': showMobileMenu, 'hidden': !showMobileMenu }"
-    class="sm:hidden block"
+    class="sm:hidden hidden"
   >
     <div class="px-2 pt-2 pb-3">
       <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
