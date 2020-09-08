@@ -4,6 +4,8 @@ defmodule TrackerWeb.UserSessionController do
   alias Tracker.Account
   alias TrackerWeb.UserAuth
 
+  plug :put_layout, "basic.html"
+
   def new(conn, _params) do
     render(conn, "new.html", error_message: nil)
   end

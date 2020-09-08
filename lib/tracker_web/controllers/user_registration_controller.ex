@@ -5,6 +5,8 @@ defmodule TrackerWeb.UserRegistrationController do
   alias Tracker.Account.User
   alias TrackerWeb.UserAuth
 
+  plug :put_layout, "basic.html"
+
   def new(conn, _params) do
     changeset = Account.change_user_registration(%User{})
     render(conn, "new.html", changeset: changeset)

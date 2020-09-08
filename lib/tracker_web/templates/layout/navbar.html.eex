@@ -1,6 +1,6 @@
 <nav
   class="bg-gray-800"
-  x-data="{ showMobileMenu: true }"
+  x-data="{ showMobileMenu: false }"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
@@ -68,7 +68,6 @@
       <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
     </div>
     <div class="pt-4 pb-3 border-t border-gray-700">
-      <a href="#" class="block px-5 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Sign out</a>
       <%= link "Sign out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "block px-5 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
     </div>
   </div>

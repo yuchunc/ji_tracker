@@ -1,7 +1,7 @@
 defmodule TrackerWeb.PageController do
   use TrackerWeb, :controller
 
-  plug :put_layout, false when action in [:landing]
+  plug :put_layout, "basic.html"
 
   def landing(conn, _params) do
     render(conn)
