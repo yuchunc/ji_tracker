@@ -10,8 +10,14 @@
     <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
       <%= form_for @changeset, Routes.user_registration_path(@conn, :create), fn f -> %>
         <%= if @changeset.action do %>
-          <div class="alert alert-danger">
-            <p>Oops, something went wrong! Please check the errors below.</p>
+          <div class="rounded-md bg-red-100 p-4 mb-5">
+            <div class="flex">
+              <div class="ml-3">
+                <h3 class="text-sm leading-5 font-medium text-red-800">
+                  Oops, something went wrong! Please check the errors below.
+                </h3>
+              </div>
+            </div>
           </div>
         <% end %>
 
@@ -20,7 +26,11 @@
           <div class="mt-1 rounded-md shadow-sm">
             <%= email_input f, :email, required: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
           </div>
-          <%= error_tag f, :email %>
+          <%= if :email in Keyword.keys(f.errors) do %>
+            <div class="text-sm font-medium text-red-800">
+              <%= error_tag f, :email %>
+            </div>
+          <% end %>
         </div>
 
         <div class="mt-6">
@@ -28,7 +38,11 @@
           <div class="mt-1 rounded-md shadow-sm">
             <%= password_input f, :password, required: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
           </div>
-          <%= error_tag f, :password %>
+          <%= if :password in Keyword.keys(f.errors) do %>
+            <div class="text-sm font-medium text-red-800">
+              <%= error_tag f, :password %>
+            </div>
+          <% end %>
         </div>
 
         <div class="mt-6 flex items-center justify-end">
