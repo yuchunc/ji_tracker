@@ -1,1 +1,1 @@
-<%= render("form.html") %>
+<%= render("form.html", conn: @conn, form_path: Routes.interest_path(@conn, :edit, @id)) %>

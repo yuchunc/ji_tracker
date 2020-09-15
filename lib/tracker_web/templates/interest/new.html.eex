@@ -1,1 +1,3 @@
-<%= render("form.html") %>
+<div class="flex justify-center">
+  <%= render("form.html", conn: @conn, form_path: Routes.interest_path(@conn, :new)) %>
+</div>

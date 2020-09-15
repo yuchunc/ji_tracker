@@ -14,6 +14,6 @@ defmodule TrackerWeb.InterestController do
   end
 
   def edit(conn, _) do
-    render(conn, header_text: "Edit Job Interest")
+    render(conn, header_text: "Edit Job Interest", id: 1)
   end
 end
