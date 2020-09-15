@@ -23,6 +23,9 @@ defmodule TrackerWeb do
 
       import Plug.Conn
       import TrackerWeb.Gettext
+      import Ecto.Changeset
+
+      alias Tracker.Repo
       alias TrackerWeb.Router.Helpers, as: Routes
     end
   end
