@@ -7,7 +7,7 @@ defmodule Tracker.Interest do
     field :position, :string
     field :point_of_contact, :string
     field :field, :string
-    embeds_many :tech_stack, :string, on_replace: :delete
+    field :tech_stack, {:array, :string}, on_replace: :delete
     field :interest_rating, :integer
     field :estimate_rating, :integer
     field :thoughts, :string

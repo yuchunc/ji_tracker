@@ -16,7 +16,8 @@ defmodule TrackerWeb.InterestController do
   end
 
   def create(conn, %{"interest" => interest}) do
-    case Interest.changeset(%Interest{}, interest) |> Repo.insert() do
+    interest_1 = Map.put(interest, "tech_stack", String.split(interest["tech_stack"], ",", trim: true))
+    case Interest.changeset(%Interest{}, interest_1) |> Repo.insert() do
       {:ok, interest} ->
         conn
         |> put_flash(:info, "Success!")

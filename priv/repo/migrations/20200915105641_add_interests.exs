@@ -2,7 +2,7 @@ defmodule Tracker.Repo.Migrations.AddInterests do
   use Ecto.Migration
 
   def change do
-    create table("posts") do
+    create table("interests") do
       add :company, :string, null: false
       add :position, :string
       add :point_of_contact, :string, null: false
