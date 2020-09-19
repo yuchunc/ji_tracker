@@ -4,11 +4,12 @@ defmodule TrackerWeb.InterestController do
   alias Tracker.Interest
 
   def index(conn, _) do
-    render(conn, interests: 1..10)
+    user = current_user(conn)
+    render(conn, interests: Interest.query_user_interest(user) |> Repo.all())
   end
 
-  def show(conn, _) do
-    render(conn)
+  def show(conn, %{"id" => id}) do
+    render(conn, interest: Repo.get(Interest, id))
   end
 
   def new(conn, _) do
@@ -17,8 +18,9 @@ defmodule TrackerWeb.InterestController do
 
   def create(conn, %{"interest" => interest}) do
     interest_1 = Map.put(interest, "tech_stack", String.split(interest["tech_stack"], ",", trim: true))
-    case Interest.changeset(%Interest{}, interest_1) |> Repo.insert() do
-      {:ok, interest} ->
+    user = current_user(conn)
+    case Interest.changeset(%Interest{user_id: user.id}, interest_1) |> Repo.insert() do
+      {:ok, _interest} ->
         conn
         |> put_flash(:info, "Success!")
         |> redirect(to: "/i")

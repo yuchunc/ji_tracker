@@ -27,6 +27,10 @@ defmodule TrackerWeb do
 
       alias Tracker.Repo
       alias TrackerWeb.Router.Helpers, as: Routes
+
+      def current_user(conn) do
+        conn.assigns.current_user
+      end
     end
   end
 

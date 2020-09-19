@@ -11,6 +11,10 @@ defmodule Tracker.Repo.Migrations.AddInterests do
       add :interest_rating, :integer, null: false
       add :estimate_rating, :integer, null: false
       add :thoughts, :text
+
+      add :user_id, references(:users), null: false
+
+      timestamps
     end
   end
 end

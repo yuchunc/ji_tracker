@@ -1,11 +1,151 @@
-<div class="bg-white overflow-hidden shadow sm:rounded-lg">
-  <div class="px-4 py-5 sm:p-6">
-    info card
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      <%= @interest.company %>
+    </h3>
+    <p class="mt-1 max-w-2xl text-md leading-5 text-gray-600">
+      <%= @interest.position %>
+    </p>
+    <div class="mt-2">
+      <%= for tag <- @interest.tech_stack || ["aaa", "bbb", "ccc"] do %>
+        <span class="px-2 py-1 mr-1 text-teal-800 text-xs leading-4 font-medium bg-teal-100 rounded-full">
+          <%= tag %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <div class="px-4 py-5 sm:px-6">
+    <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Interest
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex">
+          <%= for _ <- 1..@interest.interest_rating do %>
+            <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M3.17157 5.17157C4.73367 3.60948 7.26633 3.60948 8.82843 5.17157L10 6.34315L11.1716 5.17157C12.7337 3.60948 15.2663 3.60948 16.8284 5.17157C18.3905 6.73367 18.3905 9.26633 16.8284 10.8284L10 17.6569L3.17157 10.8284C1.60948 9.26633 1.60948 6.73367 3.17157 5.17157Z"/>
+            </svg>
+          <% end %>
+        </dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Estimated Probabiity
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex">
+          <%= for _ <- 1..@interest.estimate_rating do %>
+            <svg class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18 8C18 11.3137 15.3137 14 12 14C11.3938 14 10.8087 13.9101 10.2571 13.7429L10 14L9 15L8 16H6V18H2V14L6.25707 9.74293C6.08989 9.19135 6 8.60617 6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8ZM12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C13.1046 6 14 6.89543 14 8C14 8.55228 14.4477 9 15 9C15.5523 9 16 8.55228 16 8C16 5.79086 14.2091 4 12 4Z" />
+            </svg>
+          <% end %>
+        </dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Posting
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <%= @interest.point_of_contact %>
+        </dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Field
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <%= @interest.field %>
+        </dd>
+      </div>
+      <%= if @interest.thoughts do %>
+        <div class="sm:col-span-2">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Thoughts
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900">
+            <%= @interest.thoughts %>
+          </dd>
+        </div>
+      <% end %>
+    </dl>
   </div>
 </div>
 
-<div class="bg-white overflow-hidden shadow sm:rounded-lg mt-4">
-  <div class="px-4 py-5 sm:p-6">
-    Process Card
+<div class="bg-white shadow overflow-hidden  mt-4 sm:rounded-lg">
+  <div>
+    <dl>
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Stage
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          Initial Out reach
+        </dd>
+      </div>
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Point of Contact
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          some@email.com
+        </dd>
+      </div>
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Content
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+        </dd>
+      </div>
+      <%= if false do %>
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Thoughts
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+          </dd>
+        </div>
+      <% end %>
+    </dl>
+  </div>
+</div>
+
+<div class="bg-white shadow overflow-hidden  mt-4 sm:rounded-lg">
+  <div>
+    <dl>
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Stage
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          First Reply
+        </dd>
+      </div>
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Point of Contact
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          some@email.com
+        </dd>
+      </div>
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Content
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+        </dd>
+      </div>
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Thoughts
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+        </dd>
+      </div>
+    </dl>
   </div>
 </div>

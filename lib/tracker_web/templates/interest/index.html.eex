@@ -10,5 +10,5 @@
       </span>
     </a>
   </li>
-  <%= render_many(@interests, __MODULE__, "item.html") %>
+  <%= render_many(@interests, __MODULE__, "item.html", conn: @conn) %>
 </ul>
