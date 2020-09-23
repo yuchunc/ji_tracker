@@ -21,6 +21,8 @@
       </header>
     <% end %>
 
+    <%= render_many get_flash(@conn), __MODULE__, "notice.html", as: :flash %>
+
     <main>
       <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <%= @inner_content %>

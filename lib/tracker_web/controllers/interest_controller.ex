@@ -30,7 +30,24 @@ defmodule TrackerWeb.InterestController do
     end
   end
 
-  def edit(conn, _) do
-    render(conn, header_text: "Edit Job Interest", id: 1)
+  def edit(conn, %{"id" => id}) do
+    interest = Repo.get(Interest, id)
+    render(conn, header_text: "Edit Job Interest", changeset: change(interest))
+  end
+
+  def update(conn, %{"id" => id, "interest" => interest_form}) do
+    interest_form_1 = Map.put(interest_form, "tech_stack", String.split(interest_form["tech_stack"], ",", trim: true))
+    user = current_user(conn)
+    interest = Repo.get(Interest, id)
+    case Interest.changeset(interest, interest_form_1) |> Repo.update() do
+      {:ok, _interest} ->
+        conn
+        |> put_flash(:info, "Success!")
+        |> IO.inspect(label: "conn")
+        |> redirect(to: "/i/#{id}")
+
+      {:error, changeset} ->
+        render(conn, "new.html", header_text: "Edit Job Interest", changeset: changeset)
+    end
   end
 end

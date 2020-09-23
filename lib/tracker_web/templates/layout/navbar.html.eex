@@ -9,44 +9,50 @@
           <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="Workflow logo">
           <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg" alt="Workflow logo">
         </div>
-        <div class="hidden sm:block sm:ml-6">
+        <div class="block sm:ml-6">
           <div class="flex">
-            <a href="#" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
+            <%= if false do %>
+              <a href="#" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
+            <% end %>
             <a href="/i" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Job Interests</a>
-            <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
-            <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
+            <%= if false do %>
+              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
+              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
+            <% end %>
           </div>
         </div>
       </div>
 
-      <div class="-mr-2 hidden sm:block">
+      <div class="-mr-2 block">
         <%= link "Sign out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
       </div>
 
-      <div class="-mr-2 flex sm:hidden">
-        <!-- Mobile menu button -->
-        <button
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
-          @click="showMobileMenu = !showMobileMenu"
-          aria-label="Main menu"
-          aria-expanded="false"
-        >
-          <!-- Icon when menu is closed. -->
-          <!-- Menu open: "hidden", Menu closed: "block" -->
-          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-            :class="{ 'hidden': showMobileMenu, 'block': !showMobileMenu }"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <!-- Icon when menu is open. -->
-          <!-- Menu open: "block", Menu closed: "hidden" -->
-          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-            :class="{ 'hidden': !showMobileMenu, 'block': showMobileMenu }"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+      <%= if false do%>
+        <div class="-mr-2 flex sm:hidden">
+          <!-- Mobile menu button -->
+          <button
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+            @click="showMobileMenu = !showMobileMenu"
+            aria-label="Main menu"
+            aria-expanded="false"
+            >
+            <!-- Icon when menu is closed. -->
+            <!-- Menu open: "hidden", Menu closed: "block" -->
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                                       :class="{ 'hidden': showMobileMenu, 'block': !showMobileMenu }"
+                                                                       >
+                                                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+              <!-- Icon when menu is open. -->
+              <!-- Menu open: "block", Menu closed: "hidden" -->
+              <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                                          :class="{ 'hidden': !showMobileMenu, 'block': showMobileMenu }"
+                                                                          >
+                                                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+          </button>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -55,20 +61,26 @@
 
     Menu open: "block", Menu closed: "hidden"
   -->
-  <div
-    x-description="Mobile menu, toggle classes based on menu state."
-    @click.away="showMobileMenu = false"
-    :class="{ 'block': showMobileMenu, 'hidden': !showMobileMenu }"
-    class="sm:hidden hidden"
-  >
-    <div class="px-2 pt-2 pb-3">
-      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
+  <%= if false do %>
+    <div
+      x-description="Mobile menu, toggle classes based on menu state."
+      @click.away="showMobileMenu = false"
+      :class="{ 'block': showMobileMenu, 'hidden': !showMobileMenu }"
+      class="sm:hidden hidden"
+      >
+      <div class="px-2 pt-2 pb-3">
+        <%= if false do %>
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
+      <% end %>
       <a href="/i" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Job Interests</a>
-      <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
-      <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
+      <%= if false do %>
+        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
+        <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
+      <% end %>
+      </div>
+      <div class="pt-4 pb-3 border-t border-gray-700">
+        <%= link "Sign out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "block px-5 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
+      </div>
     </div>
-    <div class="pt-4 pb-3 border-t border-gray-700">
-      <%= link "Sign out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "block px-5 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out" %>
-    </div>
-  </div>
+  <% end %>
 </nav>
