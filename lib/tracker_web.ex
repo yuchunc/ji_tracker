@@ -51,6 +51,16 @@ defmodule TrackerWeb do
     end
   end
 
+  def live do
+    quote do
+      use Phoenix.LiveView
+
+      import Phoenix.View, only: [render: 3]
+
+      alias Tracker.Repo
+    end
+  end
+
   def router do
     quote do
       use Phoenix.Router

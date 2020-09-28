@@ -1,6 +1,7 @@
 defmodule TrackerWeb.InterestController do
   use TrackerWeb, :controller
 
+  alias TrackerWeb.InterestLive
   alias Tracker.Interest
 
   def index(conn, _) do
@@ -9,7 +10,7 @@ defmodule TrackerWeb.InterestController do
   end
 
   def show(conn, %{"id" => id}) do
-    render(conn, interest: Repo.get(Interest, id))
+    live_render(conn, InterestLive.Show, session: %{"interest_id" => id, "user" => current_user(conn)})
   end
 
   def new(conn, _) do
