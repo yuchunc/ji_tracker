@@ -49,7 +49,7 @@ defmodule Tracker.MixProject do
       {:plug_cowboy, "~> 2.0"},
 
       # Utils
-      {:phoenix_live_view, "~> 0.14.6"},
+      {:phoenix_live_view, "~> 0.15"},
       {:phx_gen_auth, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
